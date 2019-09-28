@@ -28,13 +28,15 @@ const FOOD_AREAS = [{
 		description: 'Сеть ресторанов быстрого питания',
 		image: kfc,
 		foods: [{
-			id: 'hamburger',
-			name: 'Гамбургер',
-			price: 50,
+			id: 'classic',
+			image: FourTowar,
+			name: 'Классик',
+			price: 150,
 		}, {
 			id: 'bigmac',
-			name: 'Биг мак',
-			price: 200,
+			image: OneTowar,
+			name: 'Картофель фри',
+			price: 50,
 		}],
 	}, {
 		id: 'burger-king',
@@ -75,10 +77,12 @@ const FOOD_AREAS = [{
 		image: mcdac,
 		foods: [{
 			id: 'hamburger',
+			image: TwoTowar,
 			name: 'Гамбургер',
 			price: 50,
 		}, {
 			id: 'bigmac',
+			image: ThreeTowar,
 			name: 'Биг мак',
 			price: 200,
 		}],
@@ -89,6 +93,15 @@ const FOOD_AREAS = [{
 		image: sub,
 		description: 'Сеть ресторанов быстрого питания',
 		foods: [{
+			id: 'melt-sub',
+			image: ThreeTowar,
+			name: 'Сабвей мелт',
+			price: 300,
+		}, {
+			id: 'day-sub',
+			image: OneTowar,
+			name: 'Саб дня',
+			price: 200,
 		}],
 	}],
 }];

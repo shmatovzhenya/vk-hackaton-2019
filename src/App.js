@@ -110,7 +110,7 @@ const foodsMap = FOOD_AREAS.reduce((result, area) => {
 }, {});
 
 const App = () => {
-	const [ order, setOrder ] = useState({});
+	const [ order, setOrder ] = useState(JSON.parse((localStorage.getItem('orders') || 'null')) || {});
 
 	return (
 		<Router>
@@ -142,6 +142,9 @@ const App = () => {
 										};
 									}
 
+									const serialized = JSON.stringify(updatedOrder);
+									
+									localStorage.setItem('orders', serialized);
 									setOrder(updatedOrder);
 								}}
 								onDecrementPosition={({ id }) => {
@@ -155,6 +158,9 @@ const App = () => {
 										}
 									}
 
+									const serialized = JSON.stringify(updatedOrder);
+									
+									localStorage.setItem('orders', serialized);
 									setOrder(updatedOrder);
 								}}
 							/>

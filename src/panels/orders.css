@@ -41,3 +41,38 @@
   font-size: 24px;
   color: #f7b7ce;
 }
+
+.Orders__finished-orders {
+  margin: 0;
+  padding: 10px;
+}
+
+.Orders__repeat {
+  margin-right: 10px;
+  border: 0;
+  background: 0;
+}
+
+.Orders__refresh {
+  width: 55px;
+  height: 55px;
+}
+
+.Orders__dark {
+  color: #383838;
+}
+
+.Orders__pink {
+  color: #803c5b;
+}
+
+.Orders__finished-order {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: #c3c3c3;
+  color: #f7b7ce;
+}

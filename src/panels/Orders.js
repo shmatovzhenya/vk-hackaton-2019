@@ -100,13 +100,16 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
             className="Orders__finished-order"
             key={order.link}
           >
-            <div>
-              <h3 className="Orders__header">{order.placeName}</h3>
-              <p className="Orders__shop-name">{order.shopName}</p>
-              <p className="Orders__price">Сумма {order.price} - Оплачено</p>
+            <div className="Orders__left">
+              <h3 className="Orders__header Orders__dark">{order.placeName}</h3>
+              <p className="Orders__shop-name Orders__pink">{order.shopName}</p>
+              <p className="Orders__price Orders__pink">Сумма {order.price} - Оплачено</p>
             </div>
-            <button>
+            <button
+              className="Orders__repeat"
+            >
               <img
+                className="Orders__refresh"
                 alt="repeat order"
                 src={refresh}
               />

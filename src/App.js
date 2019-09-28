@@ -5,6 +5,7 @@ import Home from './panels/Home';
 import Place from './panels/Place';
 import Basket from './panels/Basket';
 import Order from './panels/Order';
+import Orders from './panels/Orders';
 
 import './panels/App.css';
 import kfc from './img/kfc.png';
@@ -111,6 +112,7 @@ const foodsMap = FOOD_AREAS.reduce((result, area) => {
 }, {});
 
 const App = () => {
+	const [ orderStatuses, setOrderStatuses ] = useState(JSON.parse((localStorage.getItem('orderStatuses') || 'null')) || {});
 	const [ order, setOrder ] = useState(JSON.parse((localStorage.getItem('orders') || 'null')) || {});
 
 	return (
@@ -131,6 +133,12 @@ const App = () => {
 						order={order}
 					/>
 				</Route>
+				<Route
+					path="/orders"
+					exact
+				>
+					<Orders order={order} orderStatuses={orderStatuses} foodAreas={FOOD_AREAS} />
+				</Route>
 				<Route 
 					path="/place/:area/:place"
 					render={routeProps => {
@@ -140,7 +148,7 @@ const App = () => {
 								item={placesMap[routeProps.location.pathname]}
 								area={FOOD_AREAS[0]}
 								order={order}
-								onIncrementPosition={({ id }) => {
+								onIncrementPosition={({ id, itemId, areaId }) => {
 									const updatedOrder = {...order};
 
 									if (id in updatedOrder) {
@@ -152,12 +160,31 @@ const App = () => {
 										};
 									}
 
+									let nextOrderStatuses = {...orderStatuses};
+
+									if (Object.keys(nextOrderStatuses).length === 0) {
+										FOOD_AREAS.forEach(area => {
+											area.items.forEach(item => {
+												item.foods.forEach(food => {
+													if (food.id in order) {
+														const status = item.id === itemId ? 'ACTIVE' : 'DONE';
+
+														nextOrderStatuses[item.id] = status;
+													}
+												});
+											});
+										});
+									}
+
 									const serialized = JSON.stringify(updatedOrder);
 									
 									localStorage.setItem('orders', serialized);
+									localStorage.setItem('orderStatuses', JSON.stringify(nextOrderStatuses));
+
 									setOrder(updatedOrder);
+									setOrderStatuses(nextOrderStatuses);
 								}}
-								onDecrementPosition={({ id }) => {
+								onDecrementPosition={({ id, itemId, areaId }) => {
 									const updatedOrder = {...order};
 
 									if (id in updatedOrder) {
@@ -168,10 +195,29 @@ const App = () => {
 										}
 									}
 
+									let nextOrderStatuses = {...orderStatuses};
+
+									if (Object.keys(nextOrderStatuses).length === 0) {
+										FOOD_AREAS.forEach(area => {
+											area.items.forEach(item => {
+												item.foods.forEach(food => {
+													if (food.id in order) {
+														const status = item.id === itemId ? 'ACTIVE' : 'DONE';
+
+														nextOrderStatuses[item.id] = status;
+													}
+												});
+											});
+										});
+									}
+
 									const serialized = JSON.stringify(updatedOrder);
 									
 									localStorage.setItem('orders', serialized);
+									localStorage.setItem('orderStatuses', JSON.stringify(nextOrderStatuses));
+
 									setOrder(updatedOrder);
+									setOrderStatuses(nextOrderStatuses);
 								}}
 							/>
 						);

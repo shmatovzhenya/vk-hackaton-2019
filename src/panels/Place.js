@@ -78,7 +78,7 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
               <button
                 className="Place__food-button"
                 onClick={() => {
-                  onDecrementPosition({ id: food.id });
+                  onDecrementPosition({ id: food.id, itemId: item.id, areaId: area.id });
                 }}
               >
                 -
@@ -87,7 +87,7 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
               <button
                 className="Place__food-button"
                 onClick={() => {
-                  onIncrementPosition({ id: food.id });
+                  onIncrementPosition({ id: food.id, itemId: item.id, areaId: area.id });
                 }}
               >
                 +

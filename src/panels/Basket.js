@@ -22,7 +22,7 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
         const { item: { id }} = value;
 
         return foodIds.has(id);
-      })
+      });
 
     const result = products.reduce((result, value) => {
         const { count, item } = value;

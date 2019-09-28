@@ -32,7 +32,6 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
 
     return [ accounting.formatNumber(result, 0, ' '), products ];
   }, [ order, item ]);
-  console.log({ price, products });
 
   return (
     <div className="Place">

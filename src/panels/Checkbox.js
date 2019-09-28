@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Checkbox.css';
+import Check from '../img/check-symbol.svg';
 
 
 const Checkbox = ({ checked, onToggle }) => {
@@ -10,6 +11,9 @@ const Checkbox = ({ checked, onToggle }) => {
         checked={checked}
         onChange={onToggle}
         type="checkbox"
+      />
+      <img
+        src={Check}
       />
     </div>
   );

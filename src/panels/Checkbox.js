@@ -13,6 +13,7 @@ const Checkbox = ({ checked, onToggle }) => {
         type="checkbox"
       />
       <img
+        alt="custom checkbox logo"
         src={Check}
       />
     </div>

@@ -265,3 +265,41 @@
 .Place__choice {
   padding: 40px 20px 96px;
 }
+
+.Place__order-body {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.Place__order-number-header {
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.Place__order-number {
+  font-size: 30vh;
+}
+
+.Place_order {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.Place__order-time {
+  font-size: 5vh;
+}
+
+.Place_order .Place__header {
+  position: static;
+}
+
+.Place_order .Place__restoraunt {
+  margin-top: 0;
+}
+
+.Place_order .Place__footer {
+  position: static;
+}

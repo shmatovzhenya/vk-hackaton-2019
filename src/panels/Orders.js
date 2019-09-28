@@ -93,10 +93,14 @@ const Orders = ({ order, orderStatuses, foodAreas, setFinishedOrder, setActiveOr
             <div className="Orders__time">
               ~ 15 М
             </div>
-            <Link to={`/place/${order.placeId}/${order.shopId}`}>
+            <Link
+              className="Orders__change"
+              to={`/place/${order.placeId}/${order.shopId}`}
+            >
               Изм
             </Link>
             <button
+              className="Orders__cancel"
               onClick={() => {
                 setFinishedOrder({ itemId: order.shopId });
               }}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './panels/Home';
 import Place from './panels/Place';
@@ -100,6 +100,7 @@ const App = () => {
 							<Place
 								{...routeProps}
 								item={placesMap[routeProps.location.pathname]}
+								area={FOOD_AREAS[0]}
 								order={order}
 								onIncrementPosition={({ id }) => {
 									const updatedOrder = {...order};
@@ -133,11 +134,6 @@ const App = () => {
 					}}
 				/>
 			</Switch>
-			<footer className="Footer">
-				<Link to="/orders" className="Footer__orders">
-					Мои заказы
-				</Link>
-			</footer>
 		</Router>
 	);
 }

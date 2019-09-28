@@ -1,0 +1,67 @@
+.Place {}
+
+.Place__header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.Place__trz {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 67px;
+  padding: 0 12px;
+  background-color: #803c5b;
+}
+
+.Place__head {
+  overflow: hidden;
+  margin: 0;
+  color: #f7b7ce;
+}
+
+.Place__logo {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 32px;
+  font-weight: normal;
+  color: #f7b7ce;
+}
+
+.Place__change-tz {
+  width: 45px;
+  height: 45px;
+}
+
+.Place__restoraunt {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 140px;
+  border-bottom: 1px solid #a1a1a1;
+  background-color: #e6e6e6;
+}
+
+.Place__restoraunt-name {
+  margin: 25px 0 0;
+  font-size: 36px;
+  font-weight: 400;
+  color: #000;
+}
+
+.Place__restoraunt-type {
+  width: calc(100% - 140px);
+  margin: 0;
+  font-size: 16px;
+  color: #545454;
+}
+
+.Place__foods {
+  margin-top: 208px;
+}

@@ -30,7 +30,15 @@ body {
 .Home__head {
   overflow: hidden;
   margin: 0;
+  color: #f7b7ce;
+}
+
+.Home__logo {
+  display: block;
+  overflow: hidden;
+  width: 100%;
   text-overflow: ellipsis;
+  text-decoration: none;
   white-space: nowrap;
   font-size: 32px;
   font-weight: normal;

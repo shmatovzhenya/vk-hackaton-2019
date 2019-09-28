@@ -38,30 +38,42 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
       <ul className="Place__foods">
         {item.foods.map((food => (
           <li
+            className="Place__food"
             key={food.id}
           >
-            <h3>{food.name}</h3>
-            {food.id in order ? (
-              <React.Fragment>
-                <button
-                  onClick={() => {
-                    onDecrementPosition({ id: food.id });
-                  }}
-                >
-                  -
-                </button>
-                <span>{order[food.id].count}</span>
-              </React.Fragment>
-            ) : (
-              <span>0</span>
-            )}
-            <button
-              onClick={() => {
-                onIncrementPosition({ id: food.id });
-              }}
-            >
-              +
-            </button>
+            <div className="Place__food-logo-wrapper">
+              <img
+                alt="food logo"
+                className="Place__food-logo"
+                src={food.image}
+              />
+            </div>
+            <h3 className="Place__food-name">
+              {food.name}
+            </h3>
+            <p className="Place__food-composition">
+              {food.composition}
+            </p>
+            <div className="Place__food-price">
+              <span>Цена: {food.price}&nbsp;&nbsp;&nbsp;</span>
+              <button
+                className="Place__foot-button"
+                onClick={() => {
+                  onDecrementPosition({ id: food.id });
+                }}
+              >
+                -
+              </button>
+              <span>&nbsp;{food.id in order ? order[food.id].count : 0}&nbsp;</span>
+              <button
+                className="Place__foot-button"
+                onClick={() => {
+                  onIncrementPosition({ id: food.id });
+                }}
+              >
+                +
+              </button>
+            </div>
           </li>
         )))}
       </ul>

@@ -9,6 +9,10 @@ import kfc from './img/kfc.png';
 import burger from './img/burger.png';
 import mcdac from './img/mcdac.png';
 import sub from './img/sub.png';
+import OneTowar from './img/1.png';
+import TwoTowar from './img/2.png';
+import ThreeTowar from './img/3.png';
+import FourTowar from './img/4.png';
 
 
 const FOOD_AREAS = [{
@@ -36,9 +40,11 @@ const FOOD_AREAS = [{
 		description: 'Сеть ресторанов быстрого питания',
 		image: burger,
 		foods: [{
-			id: 'vopper',
-			name: 'Воппер',
-			price: 150,
+			id: 'OneTowar',
+			name: 'Товар № 1',
+			composition: 'Состав: по ГОСТу',
+			price: 630,
+			image: OneTowar,
 		}],
 	}, {
 		id: 'macdac',

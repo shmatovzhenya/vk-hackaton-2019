@@ -1,44 +1,109 @@
-import React, { useState, useEffect } from 'react';
-import connect from '@vkontakte/vk-connect';
-import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
-import '@vkontakte/vkui/dist/vkui.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './panels/Home';
-import Persik from './panels/Persik';
+import Place from './panels/Place';
+
+
+const FOOD_AREAS = [{
+	id: 'chizhova-gallery',
+	name: 'Галерея Чижова',
+	items: [{
+		id: 'macdac',
+		name: 'MacDonalds',
+		link: '/place/chizhova-gallery/mac-dac',
+		description: 'Фастфуд',
+		foods: [{
+			id: 'hamburger',
+			name: 'Гамбургер',
+			price: 50,
+		}, {
+			id: 'bigmac',
+			name: 'Биг мак',
+			price: 200,
+		}],
+	}, {
+		id: 'burger-king',
+		name: 'Burger King',
+		link: '/place/chizhova-gallery/burger-king',
+		description: 'Фастфуд',
+		foods: [{
+			id: 'vopper',
+			name: 'Воппер',
+			price: 150,
+		}],
+	}],
+}];
+
+const placesMap = FOOD_AREAS.reduce((result, area) => {
+	area.items.forEach(item => {
+		result[item.link] = item;
+	});
+
+	return result;
+}, {});
+
+const foodsMap = FOOD_AREAS.reduce((result, area) => {
+	area.items.forEach(item => {
+		item.foods.forEach(food => {
+			result[food.id] = food;
+		});
+	});
+
+	return result;
+}, {});
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
-	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-
-	useEffect(() => {
-		connect.subscribe(({ detail: { type, data }}) => {
-			if (type === 'VKWebAppUpdateConfig') {
-				const schemeAttribute = document.createAttribute('scheme');
-				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
-				document.body.attributes.setNamedItem(schemeAttribute);
-			}
-		});
-		async function fetchData() {
-			const user = await connect.sendPromise('VKWebAppGetUserInfo');
-			setUser(user);
-			setPopout(null);
-		}
-		fetchData();
-	}, []);
-
-	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
-	};
+	const [ order, setOrder ] = useState({});
 
 	return (
-		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
-			<Persik id='persik' go={go} />
-		</View>
+		<Router>
+			<Switch>
+				<Route path="/" exact>
+					<Home foodAreas={FOOD_AREAS} />
+				</Route>
+				<Route 
+					path="/place/:area/:place"
+					render={routeProps => {
+						return (
+							<Place
+								{...routeProps}
+								item={placesMap[routeProps.location.pathname]}
+								order={order}
+								onIncrementPosition={({ id }) => {
+									const updatedOrder = {...order};
+
+									if (id in updatedOrder) {
+										updatedOrder[id].count++;
+									} else {
+										updatedOrder[id] = {
+											item: foodsMap[id],
+											count: 1,
+										};
+									}
+
+									setOrder(updatedOrder);
+								}}
+								onDecrementPosition={({ id }) => {
+									const updatedOrder = {...order};
+
+									if (id in updatedOrder) {
+										if (updatedOrder[id].count === 1) {
+											delete updatedOrder[id];
+										} else {
+											updatedOrder[id].count--;
+										}
+									}
+
+									setOrder(updatedOrder);
+								}}
+							/>
+						);
+					}}
+				/>
+			</Switch>
+		</Router>
 	);
 }
 
 export default App;
-

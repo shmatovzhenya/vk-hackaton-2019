@@ -132,7 +132,7 @@ const App = () => {
 		<Router>
 			<Switch>
 				<Route path="/" exact>
-					<Home foodAreas={FOOD_AREAS} />
+					<Home foodAreas={FOOD_AREAS} order={order} />
 				</Route>
 				<Route path="/order/:areaId/:itemId" exact>
 					<Order

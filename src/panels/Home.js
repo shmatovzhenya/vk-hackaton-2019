@@ -6,7 +6,7 @@ import edit from '../img/edit.svg';
 import './Home.css';
 
 
-const Home = ({ foodAreas }) => (
+const Home = ({ foodAreas, order }) => (
 	<React.Fragment>
 		<ul className="Home">
 			{foodAreas.map((area) => (
@@ -66,11 +66,13 @@ const Home = ({ foodAreas }) => (
 				</li>
 			))}
 		</ul>
-		<footer className="Footer">
-			<Link to="/orders" className="Footer__orders">
-				Мои заказы
-			</Link>
-		</footer>
+		{Object.keys(order).length !== 0 && (
+			<footer className="Footer">
+				<Link to="/orders" className="Footer__orders">
+					Мои заказы
+				</Link>
+			</footer>
+		)}
 	</React.Fragment>
 );
 

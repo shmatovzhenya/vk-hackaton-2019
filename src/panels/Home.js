@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import edit from '../img/edit.svg';
 import './Home.css';
 
 
@@ -19,8 +20,12 @@ const Home = ({ foodAreas }) => (
 									{area.name}
 								</Link>
 							</h1>
-							<Link to="/edit" className="Home__change-tz">
-								Ch
+							<Link to="/" className="Home__change-tz">
+								<img
+									className="Home__edit"
+									alt="change-profile"
+									src={edit}
+								/>
 							</Link>
 						</header>
 						<ul className="Home__tabs">

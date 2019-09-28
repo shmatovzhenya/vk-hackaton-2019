@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import accounting from 'accounting';
 // import PropTypes from 'prop-types';
 
+import edit from '../img/edit.svg';
 import './place.css';
 
 
@@ -35,7 +36,10 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
             </Link>
           </h1>
           <Link to="/edit" className="Place__change-tz">
-            Ch
+          <img
+            alt="change-profile"
+            src={edit}
+          />
           </Link>
         </aside>
       </header>

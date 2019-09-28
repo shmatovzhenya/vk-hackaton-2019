@@ -91,6 +91,8 @@ body {
   cursor: text;
 }
 
+.Home__edit {}
+
 .Home__items {
   margin: 0;
   padding: 115px 0 75px;

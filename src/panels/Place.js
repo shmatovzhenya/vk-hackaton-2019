@@ -57,7 +57,7 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
             <div className="Place__food-price">
               <span>Цена: {food.price}&nbsp;&nbsp;&nbsp;</span>
               <button
-                className="Place__foot-button"
+                className="Place__food-button"
                 onClick={() => {
                   onDecrementPosition({ id: food.id });
                 }}
@@ -66,7 +66,7 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
               </button>
               <span>&nbsp;{food.id in order ? order[food.id].count : 0}&nbsp;</span>
               <button
-                className="Place__foot-button"
+                className="Place__food-button"
                 onClick={() => {
                   onIncrementPosition({ id: food.id });
                 }}
@@ -77,6 +77,11 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
           </li>
         )))}
       </ul>
+      <footer className="Place__footer">
+        <button className="Place__order">
+          Оформить заказ (0)
+        </button>
+      </footer>
     </div>
   );
 };

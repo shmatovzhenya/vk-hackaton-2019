@@ -45,6 +45,24 @@ const FOOD_AREAS = [{
 			composition: 'Состав: по ГОСТу',
 			price: 630,
 			image: OneTowar,
+		}, {
+			id: 'TwoTowar',
+			name: 'Товар № 2',
+			composition: 'Состав: по ГОСТу',
+			price: 450,
+			image: TwoTowar,
+		}, {
+			id: 'ThreeTowar',
+			name: 'Товар № 3',
+			composition: 'Состав: по ГОСТу',
+			price: 800,
+			image: ThreeTowar,
+		}, {
+			id: 'FourthTowar',
+			name: 'Товар № 4',
+			composition: 'Состав по ГОСТу',
+			price: 600,
+			image: FourTowar,
 		}],
 	}, {
 		id: 'macdac',

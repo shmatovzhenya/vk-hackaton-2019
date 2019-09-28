@@ -118,8 +118,11 @@ const App = () => {
 				<Route path="/" exact>
 					<Home foodAreas={FOOD_AREAS} />
 				</Route>
-				<Route path="/basket" exact>
-					<Basket />
+				<Route path="/basket/:areaId/:itemId" exact>
+					<Basket
+						foodAreas={FOOD_AREAS}
+						order={order}
+					/>
 				</Route>
 				<Route 
 					path="/place/:area/:place"

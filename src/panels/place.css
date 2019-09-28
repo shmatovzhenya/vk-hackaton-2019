@@ -162,3 +162,41 @@
   background-color: #72c66b;
   color: #22613b;
 }
+
+.Place__products {
+  margin: 0;
+  padding: 0 30px;
+}
+
+.Place__product {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 65px;
+}
+
+.Place__product-logo {
+  width: 50px;
+  height: 50px;
+  padding-top: 8px;
+}
+
+.Place__product-name {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+}
+
+.Place__product-price {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  color: #868686;
+}
+
+.Place__product-count {
+  margin: 0 0 0 auto;
+  padding: 0;
+  line-height: 65px;
+  font-size: 24px;
+}

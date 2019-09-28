@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Home from './panels/Home';
 import Place from './panels/Place';
 
+import './panels/App.css';
 import kfc from './img/kfc.png';
+import burger from './img/burger.png';
+import mcdac from './img/mcdac.png';
+import sub from './img/sub.png';
 
 
 const FOOD_AREAS = [{
@@ -30,6 +34,7 @@ const FOOD_AREAS = [{
 		name: 'Burger King',
 		link: '/place/pizikiva-gallery/burger-king',
 		description: 'Сеть ресторанов быстрого питания',
+		image: burger,
 		foods: [{
 			id: 'vopper',
 			name: 'Воппер',
@@ -40,6 +45,7 @@ const FOOD_AREAS = [{
 		name: 'McDonal\'s',
 		link: '/place/pizikiva-gallery/macdac',
 		description: 'Сеть ресторанов быстрого питания',
+		image: mcdac,
 		foods: [{
 			id: 'hamburger',
 			name: 'Гамбургер',
@@ -53,6 +59,7 @@ const FOOD_AREAS = [{
 		id: 'subway',
 		name: 'SubWay',
 		link: '/place/pizikiva-gallery/subway',
+		image: sub,
 		description: 'Сеть ресторанов быстрого питания',
 		foods: [{
 		}],
@@ -126,6 +133,11 @@ const App = () => {
 					}}
 				/>
 			</Switch>
+			<footer className="Footer">
+				<Link to="/orders" className="Footer__orders">
+					Мои заказы
+				</Link>
+			</footer>
 		</Router>
 	);
 }

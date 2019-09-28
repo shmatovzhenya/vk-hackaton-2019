@@ -11,23 +11,25 @@ const Home = ({ foodAreas }) => (
 			<li
 				key={area.id}
 			>
-				<header className="Home__header">
-					<h1 className="Home__head">{area.name}</h1>
-					<Link to="/edit" className="Home__change-tz">
-						Ch
-					</Link>
-				</header>
-				<ul className="Home__tabs">
-					<li className="Home__tab Home__tab_active">
-						Еда
-					</li>
-					<li className="Home__tab Home__tab_disabled">
-						Развлечения
-					</li>
-					<li className="Home__tab Home__tab_disabled">
-						Здоровье
-					</li>
-				</ul>
+				<div className="Home__fixed-content">
+					<header className="Home__header">
+						<h1 className="Home__head">{area.name}</h1>
+						<Link to="/edit" className="Home__change-tz">
+							Ch
+						</Link>
+					</header>
+					<ul className="Home__tabs">
+						<li className="Home__tab Home__tab_active">
+							Еда
+						</li>
+						<li className="Home__tab Home__tab_disabled">
+							Развлечения
+						</li>
+						<li className="Home__tab Home__tab_disabled">
+							Здоровье
+						</li>
+					</ul>
+				</div>
 				<ul className="Home__items">
 					{area.items.map(item => (
 						<li 
@@ -46,7 +48,7 @@ const Home = ({ foodAreas }) => (
 								<h3 className="Home__food-name">
 									{item.name}
 								</h3>
-								<p>{item.description}</p>
+								<p className="Home__food-type">{item.description}</p>
 							</Link>
 						</li>
 					))}

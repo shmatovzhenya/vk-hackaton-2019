@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+.Home {
+  margin: 0;
+  padding: 0;
+}
+
 .Home__header {
   display: flex;
   align-items: center;
@@ -64,4 +69,32 @@ body {
 .Home__tab_disabled {
   color: #717171;
   cursor: text;
+}
+
+.Home__items {
+  margin: 0;
+  padding: 0;
+}
+
+.Home__item {
+  list-style: none;
+}
+
+.Home__food-link {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 140px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.Home__food-name {
+  margin: 0;
+}
+
+.Home__image {
+  width: 120px;
+  height: 120px;
 }

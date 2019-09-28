@@ -4,15 +4,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './panels/Home';
 import Place from './panels/Place';
 
+import kfc from './img/kfc.png';
+
 
 const FOOD_AREAS = [{
-	id: 'chizhova-gallery',
-	name: 'Галерея Чижова',
+	id: 'pizikiva-gallery',
+	name: 'ТРЦ "Им.Пыжикова"',
 	items: [{
-		id: 'macdac',
-		name: 'MacDonalds',
-		link: '/place/chizhova-gallery/mac-dac',
-		description: 'Фастфуд',
+		id: 'kfc',
+		name: 'KFC',
+		link: '/place/pizikiva-gallery/kfc',
+		description: 'Сеть ресторанов быстрого питания',
+		image: kfc,
 		foods: [{
 			id: 'hamburger',
 			name: 'Гамбургер',
@@ -25,12 +28,33 @@ const FOOD_AREAS = [{
 	}, {
 		id: 'burger-king',
 		name: 'Burger King',
-		link: '/place/chizhova-gallery/burger-king',
-		description: 'Фастфуд',
+		link: '/place/pizikiva-gallery/burger-king',
+		description: 'Сеть ресторанов быстрого питания',
 		foods: [{
 			id: 'vopper',
 			name: 'Воппер',
 			price: 150,
+		}],
+	}, {
+		id: 'macdac',
+		name: 'McDonal\'s',
+		link: '/place/pizikiva-gallery/macdac',
+		description: 'Сеть ресторанов быстрого питания',
+		foods: [{
+			id: 'hamburger',
+			name: 'Гамбургер',
+			price: 50,
+		}, {
+			id: 'bigmac',
+			name: 'Биг мак',
+			price: 200,
+		}],
+	}, {
+		id: 'subway',
+		name: 'SubWay',
+		link: '/place/pizikiva-gallery/subway',
+		description: 'Сеть ресторанов быстрого питания',
+		foods: [{
 		}],
 	}],
 }];

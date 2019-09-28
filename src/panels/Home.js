@@ -6,47 +6,54 @@ import './Home.css';
 
 
 const Home = ({ foodAreas }) => (
-	<React.Fragment>
-		<header className="Home__header">
-			<h1 className="Home__head">ТРЦ "Им.Пыжикова"</h1>
-			<Link to="/edit" className="Home__change-tz">
-				Ch
-			</Link>
-		</header>
-		<ul className="Home__tabs">
-			<li className="Home__tab Home__tab_active">
-				Еда
-			</li>
-			<li className="Home__tab Home__tab_disabled">
-				Развлечения
-			</li>
-			<li className="Home__tab Home__tab_disabled">
-				Здоровье
-			</li>
-		</ul>
-		<ul>
-			{foodAreas.map((area) => (
-				<li
-					key={area.id}
-				>
-					<h2>{area.name}</h2>
-					<ul>
-						{area.items.map(item => (
-							<li 
-								key={item.id}
+	<ul className="Home">
+		{foodAreas.map((area) => (
+			<li
+				key={area.id}
+			>
+				<header className="Home__header">
+					<h1 className="Home__head">{area.name}</h1>
+					<Link to="/edit" className="Home__change-tz">
+						Ch
+					</Link>
+				</header>
+				<ul className="Home__tabs">
+					<li className="Home__tab Home__tab_active">
+						Еда
+					</li>
+					<li className="Home__tab Home__tab_disabled">
+						Развлечения
+					</li>
+					<li className="Home__tab Home__tab_disabled">
+						Здоровье
+					</li>
+				</ul>
+				<ul className="Home__items">
+					{area.items.map(item => (
+						<li 
+							className="Home__item"
+							key={item.id}
+						>
+							<Link
+								className="Home__food-link"
+								to={item.link}
 							>
-								<Link
-									to={item.link}
-								>
-									<h3>{item.name}</h3>
-								</Link>
-							</li>
-						))}
-					</ul>
-				</li>
-			))}
-		</ul>
-	</React.Fragment>
+								<img
+									alt={item.name}
+									className="Home__image"
+									src={item.image}
+								/>
+								<h3 className="Home__food-name">
+									{item.name}
+								</h3>
+								<p>{item.description}</p>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</li>
+		))}
+	</ul>
 );
 
 Home.propTypes = {

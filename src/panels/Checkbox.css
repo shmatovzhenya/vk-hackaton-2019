@@ -1,0 +1,14 @@
+.Checkbox {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #000;
+}
+
+.Checkbox input[type="checkbox"] {
+  opacity: 0.1;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+}

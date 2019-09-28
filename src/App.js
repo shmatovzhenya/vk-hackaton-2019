@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './panels/Home';
 import Place from './panels/Place';
+import Basket from './panels/Basket';
 
 import './panels/App.css';
 import kfc from './img/kfc.png';
@@ -116,6 +117,9 @@ const App = () => {
 			<Switch>
 				<Route path="/" exact>
 					<Home foodAreas={FOOD_AREAS} />
+				</Route>
+				<Route path="/basket" exact>
+					<Basket />
 				</Route>
 				<Route 
 					path="/place/:area/:place"

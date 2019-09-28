@@ -1,1 +1,43 @@
-.orders {}
+.Orders {}
+
+.Orders__active-orders {
+  margin: 0;
+  padding: 10px;
+}
+
+.Orders__active-order {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: #803c5b;
+  color: #f7b7ce;
+}
+
+.Orders__left {
+  padding-left: 20px;
+}
+
+.Orders__header {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.Orders__shop-name {
+  margin: 0;
+  padding: 0;
+}
+
+.Orders__price {
+  margin: 0;
+  padding: 0;
+}
+
+.Orders__time {
+  padding-right: 10px;
+  line-height: 60px;
+  font-size: 24px;
+  color: #f7b7ce;
+}

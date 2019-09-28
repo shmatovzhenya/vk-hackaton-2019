@@ -38,7 +38,7 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
     });
 
     return result;
-  }, [ order, orderStatuses ]);
+  }, [ order, orderStatuses, foodAreas ]);
 
   const finishedOrders = useMemo(() => {
     const activeOrdersList = Object.keys(orderStatuses)
@@ -72,7 +72,7 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
     });
 
     return result;
-  }, [ order, orderStatuses ]);
+  }, [ order, orderStatuses, foodAreas ]);
 
   console.log({ order, orderStatuses, foodAreas, activeOrders });
   return (
@@ -83,12 +83,12 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
             className="Orders__active-order"
             key={order.link}
           >
-            <div>
-              <h3>{order.placeName}</h3>
-              <p>{order.shopName}</p>
-              <p>Сумма {order.price} - Оплачено</p>
+            <div className="Orders__left">
+              <h3 className="Orders__header">{order.placeName}</h3>
+              <p className="Orders__shop-name">{order.shopName}</p>
+              <p className="Orders__price">Сумма {order.price} - Оплачено</p>
             </div>
-            <div>
+            <div className="Orders__time">
               ~ 15 М
             </div>
           </li>
@@ -101,9 +101,9 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
             key={order.link}
           >
             <div>
-              <h3>{order.placeName}</h3>
-              <p>{order.shopName}</p>
-              <p>Сумма {order.price} - Оплачено</p>
+              <h3 className="Orders__header">{order.placeName}</h3>
+              <p className="Orders__shop-name">{order.shopName}</p>
+              <p className="Orders__price">Сумма {order.price} - Оплачено</p>
             </div>
             <button>
               <img

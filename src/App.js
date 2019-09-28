@@ -150,6 +150,15 @@ const App = () => {
 						order={order}
 						orderStatuses={orderStatuses}
 						foodAreas={FOOD_AREAS}
+						setActiveOrder={({ itemId }) => {
+							const nextStatuses = {...orderStatuses};
+							console.log({ itemId });
+
+							nextStatuses[itemId] = 'ACTIVE';
+
+							setOrderStatuses(nextStatuses);
+							localStorage.setItem('orderStatuses', JSON.stringify(nextStatuses));
+						}}
 					/>
 				</Route>
 				<Route 

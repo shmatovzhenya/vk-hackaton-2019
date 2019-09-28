@@ -5,7 +5,7 @@ import refresh from '../img/refresh-button.svg';
 import './orders.css';
 
 
-const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeatPreviousOrder }) => {
+const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeatPreviousOrder, setActiveOrder }) => {
   const activeOrders = useMemo(() => {
     const activeOrdersList = Object.keys(orderStatuses)
       .filter(shopId => orderStatuses[shopId] === 'ACTIVE')
@@ -54,6 +54,7 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
           const data = {
             placeName: area.name,
             shopName: item.name,
+            shopId: item.id,
             price: item.foods.reduce((result, food) => {
               if (food.id in order) {
                 const { item: { price }, count } = order[food.id];
@@ -107,6 +108,9 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
             </div>
             <button
               className="Orders__repeat"
+              onClick={() => {
+                setActiveOrder({ itemId: order.shopId });
+              }}
             >
               <img
                 className="Orders__refresh"
@@ -124,6 +128,7 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
 Orders.defaultProps = {
   changeOrderStatus: () => {},
   onRepeatPreviousOrder: () => {},
+  setActiveOrder: () => {},
 };
 
 export default Orders;

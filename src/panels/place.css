@@ -43,8 +43,9 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 140px;
-  border-bottom: 1px solid #a1a1a1;
+  height: 120px;
+  margin-top: 67px;
+  border-bottom: 1px solid rgba(161, 161, 161, .3);
   background-color: #e6e6e6;
 }
 
@@ -63,7 +64,7 @@
 }
 
 .Place__foods {
-  margin: 208px 0 75px;
+  margin: 0 0 75px;
   padding: 0;
 }
 
@@ -92,6 +93,7 @@
 }
 
 .Place__food-name {
+  width: calc(100% - 120px);
   margin: 0;
   font-size: 30px;
   font-weight: 300;
@@ -99,6 +101,7 @@
 }
 
 .Place__food-composition {
+  width: calc(100% - 120px);
   margin: 0;
   font-size: 16px;
   color: #545454;
@@ -107,18 +110,29 @@
 .Place__food-price {
   display: flex;
   align-items: center;
+  width: calc(100% - 120px);
   margin-top: 20px;
+  white-space: nowrap;
   line-height: 40px;
-  font-size: 24px;
+  font-size: 20px;
+}
+
+.Place__restoraunt-logo {
+  width: 120px;
+  height: 120px;
+}
+
+.Place__food-price-price {
+  margin-right: auto;
 }
 
 .Place__food-button {
   box-sizing: border-box;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border: 3px solid #000;
   border-radius: 3px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -144,7 +158,7 @@
   line-height: 60px;
   text-align: center;
   text-decoration: none;
-  font-size: 27px;
+  font-size: 22px;
   background-color: #72c66b;
   color: #22613b;
 }

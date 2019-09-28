@@ -58,38 +58,62 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
           {item.description}
         </p>
       </aside>
-      <ul className="Place__products">
-        {products.map(({ item, count }) => (
-          <li
-            className="Place__product"
-            key={item.id}
-          >
-            <img
-              className="Place__product-logo"
-              alt="Ordered product logo"
-              src={item.image}
-            />
-            <h3
-              className="Place__product-name"
+      <div className="Place__products-wrapper">
+        <ul className="Place__products">
+          {products.map(({ item, count }) => (
+            <li
+              className="Place__product"
+              key={item.id}
             >
-              {item.name}
-            </h3>
-            <p
-              className="Place__product-price"
-            >
-              Цена: {item.price}
-            </p>
-            <p
-              className="Place__product-count"
-            >
-              x{count}
-            </p>
-          </li>
-        ))}
-      </ul>
+              <img
+                className="Place__product-logo"
+                alt="Ordered product logo"
+                src={item.image}
+              />
+              <h3
+                className="Place__product-name"
+              >
+                {item.name}
+              </h3>
+              <p
+                className="Place__product-price"
+              >
+                Цена: {item.price}
+              </p>
+              <p
+                className="Place__product-count"
+              >
+                x{count}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <Link
+          className="Place__change-product"
+          to={`/place/${areaId}/${itemId}`}
+        >
+          Изменить
+        </Link>
+      </div>
+      <div className="Place__choice">
+        <h3>Время:</h3>
+        <div>
+          <span>Как можно быстрее</span>
+        </div>
+        <div>
+          <span>Назначить</span>
+          <input />
+        </div>
+        <div>
+          <h3>С собой</h3>
+        </div>
+        <div>
+          <h3>На месте</h3>
+        </div>
+      </div>
       <footer className="Place__footer">
         <Link to={`/basket/${area.id}/${item.id}`} className="Place__order">
-          Оформить заказ ({price})
+          Оплатить {price}
         </Link>
       </footer>
     </div>

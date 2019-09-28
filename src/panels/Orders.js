@@ -5,7 +5,7 @@ import refresh from '../img/refresh-button.svg';
 import './orders.css';
 
 
-const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeatPreviousOrder, setActiveOrder }) => {
+const Orders = ({ order, orderStatuses, foodAreas, setFinishedOrder, setActiveOrder }) => {
   const activeOrders = useMemo(() => {
     const activeOrdersList = Object.keys(orderStatuses)
       .filter(shopId => orderStatuses[shopId] === 'ACTIVE')
@@ -18,7 +18,9 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
       area.items.forEach(item => {
         if (activeOrdersSet.has(item.id)) {
           const data = {
+            placeId: area.id,
             placeName: area.name,
+            shopId: item.id,
             shopName: item.name,
             price: item.foods.reduce((result, food) => {
               if (food.id in order) {
@@ -75,7 +77,6 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
     return result;
   }, [ order, orderStatuses, foodAreas ]);
 
-  console.log({ order, orderStatuses, foodAreas, activeOrders });
   return (
     <div className="Orders">
       <ul className="Orders__active-orders">
@@ -92,6 +93,16 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
             <div className="Orders__time">
               ~ 15 М
             </div>
+            <Link to={`/place/${order.placeId}/${order.shopId}`}>
+              Изм
+            </Link>
+            <button
+              onClick={() => {
+                setFinishedOrder({ itemId: order.shopId });
+              }}
+            >
+              Отм.
+            </button>
           </li>
         ))}
       </ul>
@@ -126,8 +137,7 @@ const Orders = ({ order, orderStatuses, foodAreas, onChangeOrderStatus, onRepeat
 };
 
 Orders.defaultProps = {
-  changeOrderStatus: () => {},
-  onRepeatPreviousOrder: () => {},
+  setFinishedOrder: () => {},
   setActiveOrder: () => {},
 };
 

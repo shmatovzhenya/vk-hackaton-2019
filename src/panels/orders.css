@@ -8,6 +8,7 @@
 .Orders__active-order {
   display: flex;
   justify-content: space-between;
+  position: relative;
   margin-bottom: 10px;
   border-radius: 20px;
   padding: 10px 0;

@@ -127,7 +127,6 @@ const App = () => {
 						order={order}
 						setActiveOrder={({ itemId }) => {
 							const nextStatuses = {...orderStatuses};
-							console.log({ itemId });
 
 							nextStatuses[itemId] = 'ACTIVE';
 
@@ -150,9 +149,16 @@ const App = () => {
 						order={order}
 						orderStatuses={orderStatuses}
 						foodAreas={FOOD_AREAS}
+						setFinishedOrder={({ itemId }) => {
+							const nextStatuses = {...orderStatuses};
+
+							nextStatuses[itemId] = 'DONE';
+
+							setOrderStatuses(nextStatuses);
+							localStorage.setItem('orderStatuses', JSON.stringify(nextStatuses));
+						}}
 						setActiveOrder={({ itemId }) => {
 							const nextStatuses = {...orderStatuses};
-							console.log({ itemId });
 
 							nextStatuses[itemId] = 'ACTIVE';
 

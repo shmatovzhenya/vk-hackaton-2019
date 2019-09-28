@@ -97,9 +97,9 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   box-sizing: border-box;
-  height: 140px;
+  height: 120px;
   border-bottom: 1px solid #a3a3a3;
-  padding: 10px;
+  padding: 0 10px;
   text-decoration: none;
 }
 
@@ -111,10 +111,12 @@ body {
 .Home__food-name {
   margin: 25px 0 0;
   font-size: 36px;
+  font-weight: 400;
   color: #000;
 }
 
 .Home__food-type {
+  width: calc(100% - 140px);
   margin: 0;
   font-size: 16px;
   color: #545454;

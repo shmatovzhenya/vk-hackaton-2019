@@ -125,6 +125,15 @@ const App = () => {
 					<Order
 						foodAreas={FOOD_AREAS}
 						order={order}
+						setActiveOrder={({ itemId }) => {
+							const nextStatuses = {...orderStatuses};
+							console.log({ itemId });
+
+							nextStatuses[itemId] = 'ACTIVE';
+
+							setOrderStatuses(nextStatuses);
+							localStorage.setItem('orderStatuses', JSON.stringify(nextStatuses));
+						}}
 					/>
 				</Route>
 				<Route path="/basket/:areaId/:itemId" exact>
@@ -137,7 +146,11 @@ const App = () => {
 					path="/orders"
 					exact
 				>
-					<Orders order={order} orderStatuses={orderStatuses} foodAreas={FOOD_AREAS} />
+					<Orders 
+						order={order}
+						orderStatuses={orderStatuses}
+						foodAreas={FOOD_AREAS}
+					/>
 				</Route>
 				<Route 
 					path="/place/:area/:place"

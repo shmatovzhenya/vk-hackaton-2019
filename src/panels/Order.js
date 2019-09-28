@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './place.css';
 
 
-const Order = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
+const Order = ({ match: { params: { areaId, itemId }}, history, foodAreas, setActiveOrder }) => {
   const area = foodAreas.filter(area => area.id === areaId)[0];
   const item = area.items.filter(item => item.id === itemId)[0];
 
@@ -52,12 +52,26 @@ const Order = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
         </h3>
       </div>
       <footer className="Place__footer">
-        <Link to="/orders" className="Place__order">
+        <div 
+          to="/orders" 
+          className="Place__order"
+          onClick={() => {
+            setActiveOrder({ itemId });
+
+            setTimeout(() => {
+              history.push('/orders');
+            }, 0);
+          }}
+        >
           Мои заказы
-        </Link>
+        </div>
       </footer>
     </div>
   );
+};
+
+Order.defaultProps = {
+  setActiveOrder: () => {},
 };
 
 export default withRouter(Order);

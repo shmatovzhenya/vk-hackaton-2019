@@ -1,4 +1,4 @@
-Развёрнутый сайт - https://github.com/shmatovzhenya/vk-hackaton-2019
+Развёрнутый сайт - kozodoi-club-hack.surge.sh
 
 Для локального развёртывания в корне необходимо выполнить npm i, затем npm start
 
